@@ -1,5 +1,5 @@
 {
-	"name": "nblog",
+	"name": "kanso",
 	"version": "1.0.0",
 	"description": "A Responsive, Fast, i18n and Theme-able static blog base on Next.js.",
 	"main": "index.js",
@@ -7,7 +7,9 @@
 		"dev": "next",
 		"build": "next build",
 		"start": "next start -p 4000",
-		"test:notion": "node ./src/utils/notion.js"
+		"test:notion": "node ./src/utils/notion.js",
+		"update-posts": "./update-posts.sh",
+		"update-kanso": "./update-kanso.sh"
 	},
 	"author": "",
 	"license": "MIT",
