@@ -51,24 +51,13 @@ const Header: React.FC<HeaderProps> = ({
 	};
 
 	var pageMenuItems = [];
-	if (currentPage.path) {
-		if (currentPage.path.match(/\/blog\/.+/)) {
-			pageMenuItems.push({
-				textPrimary: "About This Book",
-			});
-		} else if (currentPage.path.match(/\/blog\/.+/)) {
-			// ...
-		}
-	}
 
 	useEffect(() => {
-		if (screen.width > 768 && currentPage.path.match(/\/p\/.+/)) {
+		if (screen.width > 768 && router.pathname.match(/\/p\/.+/)) {
 			const handleScroll = () => {
 				const container = document.querySelector(".content");
 
 				const currentScrollPos = container.scrollTop;
-
-				console.log(currentScrollPos);
 
 				const visible =
 					prevScrollPos > currentScrollPos || currentScrollPos < 10;

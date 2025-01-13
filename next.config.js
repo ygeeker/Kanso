@@ -7,7 +7,6 @@ module.exports = {
 		ignoreBuildErrors: true,
 	},
 	images: {
-		sizes: [320, 480, 820, 1200, 1600],
 		remotePatterns: [
 			{
 				protocol: "https",
