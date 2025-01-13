@@ -17,19 +17,22 @@ Kanso 是一个静态写作的个人网站系统，可以无缝集成 Notion 和
 
 ## 🚀 快速开始
 
-1. 点击 "Use this template" 创建你的仓库
+1. Fork 此仓库
 2. 编辑 site.config.js 填写你的信息
-3. 部署到你喜欢的平台
+3. 部署到你喜欢的平台（参考下面的部署方法）
+4. （可选）启用 Notion 同步的 Workflow（参考写作部分）
 
 ## 部署到 Vercel
+
+在你 Fork 的仓库，点击下方按钮。
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FRiverTwilight%2Frene.wang)
 
 ## 部署到 Netify
 
-```bash
-CI= yarn run build
-```
+在你 Fork 的仓库，点击下方按钮。
+
+[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ReneWang/kanso)
 
 ## 部署到自己的服务器
 
