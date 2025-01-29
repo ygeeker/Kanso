@@ -28,15 +28,26 @@ fi
 
 # Stash posts to keep them safe
 echo "📦 Saving your posts..."
-git stash push -- "posts/*" "public/images/posts/*"
+git stash push -- "posts/*"
 
 # Fetch upstream changes
 echo "⬇️ Fetching updates from upstream..."
 git fetch upstream
 
+# Determine the main branch of upstream
+UPSTREAM_MAIN_BRANCH=""
+if git show-ref --verify --quiet refs/remotes/upstream/main; then
+    UPSTREAM_MAIN_BRANCH="main"
+elif git show-ref --verify --quiet refs/remotes/upstream/master; then
+    UPSTREAM_MAIN_BRANCH="master"
+else
+    echo -e "${RED}Error: Could not find main or master branch in upstream${NC}"
+    exit 1
+fi
+
 # Merge upstream changes
-echo "🔄 Merging updates..."
-if git merge upstream/main; then
+echo "🔄 Merging updates from upstream/${UPSTREAM_MAIN_BRANCH}..."
+if git merge "upstream/${UPSTREAM_MAIN_BRANCH}"; then
     echo -e "${GREEN}System updated successfully!${NC}"
 else
     echo -e "${RED}Merge conflicts detected. Please resolve them manually.${NC}"
