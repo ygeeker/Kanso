@@ -128,6 +128,10 @@ async function notionBlocksToMarkdown(blocks, indent = 0) {
 				return `\n---\n`;
 			case "paragraph":
 				return `\n${richTextToMarkdown(block.paragraph.rich_text)}\n`;
+			case "heading_3":
+				return `\n### ${richTextToMarkdown(
+					block.heading_3.rich_text
+				)}\n`;
 			case "heading_2":
 				return `\n## ${richTextToMarkdown(
 					block.heading_2.rich_text
