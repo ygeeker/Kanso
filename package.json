@@ -1,6 +1,6 @@
 {
 	"name": "kanso",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "A Responsive, Fast, i18n and Theme-able static blog base on Next.js.",
 	"main": "index.js",
 	"scripts": {
@@ -9,7 +9,7 @@
 		"start": "next start -p 4000",
 		"test:notion": "node ./src/utils/notion.js",
 		"update-posts": "./update-posts.sh",
-		"update-kanso": "./update-kanso.sh"
+		"update-system": "./update-system.sh"
 	},
 	"author": "",
 	"license": "MIT",
