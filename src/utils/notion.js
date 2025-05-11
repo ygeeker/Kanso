@@ -207,9 +207,23 @@ async function notionBlocksToMarkdown(blocks, indent = 0) {
 }
 
 async function getPageContent(pageId, indent = 0) {
-	const content = await notion.blocks.children.list({ block_id: pageId });
+	let allBlocks = [];
+	let hasMore = true;
+	let startCursor = undefined;
 
-	return notionBlocksToMarkdown(content.results, indent);
+	while (hasMore) {
+		const content = await notion.blocks.children.list({
+			block_id: pageId,
+			start_cursor: startCursor,
+			page_size: 100, // Maximum page size allowed by Notion API
+		});
+
+		allBlocks = [...allBlocks, ...content.results];
+		hasMore = content.has_more;
+		startCursor = content.next_cursor;
+	}
+
+	return notionBlocksToMarkdown(allBlocks, indent);
 }
 
 async function getBlogPosts() {
