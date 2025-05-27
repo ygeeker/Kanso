@@ -34,6 +34,7 @@ export interface ICurrentPage {
 	path: string;
 	description?: string;
 	image?: string;
+	keywords?: string[];
 }
 
 // 词典

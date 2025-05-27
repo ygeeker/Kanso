@@ -81,6 +81,10 @@ const Layout = (props: {
 	}`;
 	const appliedDescription =
 		currentPage.description || siteConfig.description[locale];
+	const appliedKeywords = [
+		...(currentPage.keywords || []),
+		...(siteConfig.keywords || []),
+	];
 
 	const [colorScheme, setColorScheme] = useState("light");
 	const containerEle = useRef(null);
@@ -127,7 +131,7 @@ const Layout = (props: {
 				></link>
 
 				<meta name="description" content={appliedDescription} />
-				<meta name="keywords" content={siteConfig.keywords.join(",")} />
+				<meta name="keywords" content={appliedKeywords.join(",")} />
 				<meta name="description" content={appliedDescription} />
 				<meta name="author" content={author.name} />
 

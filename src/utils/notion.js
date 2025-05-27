@@ -250,6 +250,7 @@ async function getBlogPosts() {
 					date,
 					locale: post.properties.Locale.multi_select,
 					tags: post.properties.Tags.multi_select,
+					keywords: post.properties.Keywords.multi_select,
 				};
 			}
 		})
@@ -275,6 +276,10 @@ async function getBlogPosts() {
 
 		if (post.cover) {
 			metadata.push(`cover: ${post.cover}`);
+		}
+
+		if (post.keywords && post.keywords.length > 0) {
+			metadata.push(`keywords:\n${post.keywords.map(k => `  - ${k.name}`).join("\n")}`);
 		}
 
 		const frontMatterStr = metadata.join("\n");
